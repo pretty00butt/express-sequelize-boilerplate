@@ -1,18 +1,10 @@
 # Express ES6 Boilerplate
 
-### Features:
-- [Express.js](https://expressjs.com/) as the web framework.
-- ES2017+ support with [Babel](https://babeljs.io/).
-- Development with Gulp(http://gulpjs.com/).
-- Automatic polyfill requires based on environment with [babel-preset-env](https://github.com/babel/babel-preset-env).
-- Linting with [ESLint](http://eslint.org/).
-- Testing with [Jest](https://facebook.github.io/jest/).
-
-
 ## Basic APIs
 
 | METHOD | URI | Purpose |
 | ------ | --- | ------- |
+| `GET` | /api/auth/async-await-test | Test for async/await features |
 | `POST` | /api/auth/signup | Signup |
 | `POST` | /api/auth/login | Login |
 
@@ -21,11 +13,8 @@
 
 ```sh
 # Clone the project
-git clone git@github.com:the6thm0nth/express-es6-boilerplate.git
-cd express-es6-boilerplate
-
-# Make it your own
-rm -rf .git && git init && npm init
+git clone https://github.com/edkimco/express-sequelize-boilerplate.git
+cd express-sequelize-boilerplate
 
 # Install dependencies
 npm install
@@ -34,13 +23,8 @@ npm install
 yarn
 ```
 
-_If you don't use [Yarn](https://yarnpkg.com/) you can just replace `yarn` with `npm` in the commands that follow._
-
-Then you can begin development:
-
 ```sh
-gulp
-# yarn run dev
+yarn start # npm run start
 ```
 
 ## License
