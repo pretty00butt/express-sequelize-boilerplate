@@ -16,10 +16,14 @@ router.get('/', (req, res) => {
 })
 
 /**
+ * Test for async/await
+ */
+router.get('/async-await-test', test.asyncTest)
+
+/**
  * Authentication
  */
 router.post('/signup', auth.signup)
 router.post('/login', auth.login)
-router.get('/async-await-test', test.asyncTest)
 
 export default router
