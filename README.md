@@ -4,9 +4,9 @@
 
 | METHOD | URI | Purpose |
 | ------ | --- | ------- |
-| `GET` | /api/auth/async-await-test | Test for async/await features |
-| `POST` | /api/auth/signup | Signup |
-| `POST` | /api/auth/login | Login |
+| `GET`  | /api/auth/async-await-test | Test for async/await features |
+| `POST` | /api/auth/signup           | Signup                        |
+| `POST` | /api/auth/login            | Login                         |
 
 
 ## Getting started
@@ -26,6 +26,12 @@ yarn
 ```sh
 yarn start # npm run start
 ```
+
+## To-Dos
+- [ ] Test Code with Jest
+- [ ] More basic APIs
+    - [ ] to reset password
+    - [ ] CRUD users with queries
 
 ## License
 MIT License. See the [LICENSE](LICENSE) file.
