@@ -1,5 +1,7 @@
 import { Router } from 'express'
 import config from '../../config'
+
+import adminRouter from './admin'
 import * as auth from './auth'
 import * as test from './test'
 
@@ -19,6 +21,11 @@ router.get('/', (req, res) => {
  * Test for async/await
  */
 router.get('/async-await-test', test.asyncTest)
+
+/**
+ * Admin
+ */
+router.use('/admin', adminRouter)
 
 /**
  * Authentication
