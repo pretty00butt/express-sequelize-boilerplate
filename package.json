@@ -36,6 +36,7 @@
     "body-parser": "^1.17.1",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.4",
+    "debug": "^3.1.0",
     "eslint-config-standard": "^10.2.1",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.4.2",
@@ -50,10 +51,11 @@
   },
   "devDependencies": {
     "babel-jest": "^20.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jest": "^20.0.0",
+    "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
@@ -62,8 +64,9 @@
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
-    "jest": "^20.0.0",
+    "jest": "^21.2.1",
     "nodemon": "^1.11.0",
+    "nyc": "^11.3.0",
     "supertest": "^3.0.0"
   },
   "babel": {
@@ -100,6 +103,10 @@
     }
   },
   "jest": {
-    "testEnvironment": "node"
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/routes/**/*.js"
+    ]
   }
 }

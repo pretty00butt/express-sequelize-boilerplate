@@ -1,10 +1,14 @@
 import passport from 'passport'
+import bcrypt from 'bcrypt-nodejs'
 
 import models from '../models/index'
 import { createToken } from '../lib/jwt'
 
 export const signup = (req, res, next) => {
-  models.User.create(req.body)
+  const hash = bcrypt.hashSync(req.body.password)
+  req.body.password = hash
+  models.User
+    .create(req.body)
     .then(user => {
       const token = createToken()
       res.json({ token })
@@ -21,7 +25,7 @@ export const login = (req, res, next) => {
         if (ex) {
           next(ex)
         } else {
-          const token = createToken(user)
+          const token = createToken(user.get())
           user.token = token
           res.json(user)
         }

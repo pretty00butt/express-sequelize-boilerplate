@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(256),
       allowNull: false
     },
+    nickname: {
+      type: DataTypes.STRING(128)
+    },
     deleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,

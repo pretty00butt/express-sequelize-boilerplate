@@ -3,7 +3,7 @@ import config from '../../config'
 
 import adminRouter from './admin'
 import * as auth from './auth'
-import * as test from './test'
+import * as sampleAsyncAwait from './sample-async-await'
 
 const router = Router()
 
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 /**
  * Test for async/await
  */
-router.get('/async-await-test', test.asyncTest)
+router.get('/async-await-test', sampleAsyncAwait.asyncTest)
 
 /**
  * Admin

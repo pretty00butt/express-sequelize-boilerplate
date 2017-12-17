@@ -12,7 +12,8 @@ export default () => {
       models.User.findOne({
         where: {
           username
-        }
+        },
+        attributes: ['username', 'password']
       })
         .then(user => {
           if (user) {

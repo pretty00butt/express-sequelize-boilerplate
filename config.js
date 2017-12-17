@@ -9,7 +9,7 @@ module.exports = {
     password: 'qwerTY!@',
     dialect: 'mysql',
     timezone: '+09:00',
-    forceSync: true,
+    forceSync: false,
     alter: false
   },
   privateKey: 'express-es6-boilerplate',
