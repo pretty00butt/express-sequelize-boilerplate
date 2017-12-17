@@ -28,7 +28,7 @@ yarn start # npm run start
 ```
 
 ## To-Dos
-- [ ] Test Code with Jest
+- [x] Test Code with Jest
 - [ ] More basic APIs
     - [ ] to reset password
     - [ ] CRUD users with queries
