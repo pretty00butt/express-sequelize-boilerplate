@@ -1,9 +1,9 @@
 {
-  "name": "express-babel",
+  "name": "express-sequelize-boilerplate",
   "version": "1.0.0",
-  "description": "Using latest JavaScript features on the server",
+  "description": "Express API using Sequelize ORM",
   "repository": "https://github.com/vmasto/express-babel",
-  "author": "Vassilis Mastorostergios <vmasto@gmail.com>",
+  "author": "Hoony <hoonch3@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
