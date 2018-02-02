@@ -17,7 +17,5 @@ export const authenticate = (req, res, next) => {
 }
 
 export const asyncMiddleware = fn => (req, res, next) => {
-  Promise
-    .resolve(fn(req, res, next))
-    .catch(next);
+  Promise.resolve(fn(req, res, next)).catch(next)
 }
