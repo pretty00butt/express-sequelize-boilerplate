@@ -1,36 +1,13 @@
-import { Router } from 'express'
-import config from '../../config'
+/**
+ * IGNORE ESLINT RULE
+ */
 
-import adminRouter from './admin'
-import * as auth from './auth'
-import * as sampleAsyncAwait from './sample-async-await'
+import { Router } from 'express'
+
+import router_v_1_0 from './v1.0'
 
 const router = Router()
 
-/**
- * GET home page
- */
-
-router.get('/', (req, res) => {
-  res.json({
-    version: config.version
-  })
-})
-
-/**
- * Test for async/await
- */
-router.get('/async-await-test', sampleAsyncAwait.asyncTest)
-
-/**
- * Admin
- */
-router.use('/admin', adminRouter)
-
-/**
- * Authentication
- */
-router.post('/signup', auth.signup)
-router.post('/login', auth.login)
+router.use('/v1.0', router_v_1_0)
 
 export default router

@@ -9,10 +9,10 @@ module.exports = {
     password: 'qwerTY!@',
     dialect: 'mysql',
     timezone: '+09:00',
-    forceSync: false,
+    forceSync: true,
     alter: false
   },
-  privateKey: 'express-es6-boilerplate',
+  privateKey: 'express-sequelize-boilerplate',
   header: {
     token: 'x-access-token'
   },

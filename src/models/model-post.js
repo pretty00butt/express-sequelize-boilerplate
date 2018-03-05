@@ -1,22 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
-    'User',
+    'Post',
     {
-      username: {
+      title: {
         type: DataTypes.STRING(128),
-        allowNull: false,
-        unique: true
-      },
-      password: {
-        type: DataTypes.STRING(256),
         allowNull: false
       },
-      nickname: {
-        type: DataTypes.STRING(128)
-      },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+      content: {
+        type: DataTypes.TEXT,
         allowNull: false
       },
       deleted: {

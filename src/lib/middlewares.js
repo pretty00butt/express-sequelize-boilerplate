@@ -7,8 +7,29 @@ export const authenticate = (req, res, next) => {
   if (token) {
     validateToken({ token })
       .then(payload => {
-        req.payload = payload
+        req.validUser = payload
         next()
+      })
+      .catch(err => next(err))
+  } else {
+    next(new Error('No Token'))
+  }
+}
+
+export const validateAdmin = (req, res, next) => {
+  const token = req.get(config.header.token)
+
+  if (token) {
+    validateToken({ token })
+      .then(payload => {
+        if (payload.isAdmin) {
+          req.validUser = payload
+          next()
+        } else {
+          const error = new Error('권한이 없습니다.')
+          error.status = 402
+          next(error)
+        }
       })
       .catch(err => next(err))
   } else {
