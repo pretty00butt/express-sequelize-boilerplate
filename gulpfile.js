@@ -1,13 +1,6 @@
 const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const babel = require('gulp-babel')
-const eslint = require('gulp-eslint')
-
-gulp.task('lint', () => {
-  return gulp.src(['src/**/*.js', '!node_modules/**'])
-    .pipe(eslint())
-    .pipe(eslint.format())
-})
 
 gulp.task('compile', function () {
   return gulp.src('./src/**/*.js')
@@ -23,11 +16,11 @@ gulp.task('start', function () {
   })
 })
 
-gulp.task('watch', ['lint', 'compile'], function () {
+gulp.task('watch', ['compile'], function () {
   return nodemon({
     script: 'dist/entry.js',
     watch: 'src',
-    tasks: ['lint', 'compile'] // compile synchronously onChange
+    tasks: ['compile'] // compile synchronously onChange
   })
 })
 

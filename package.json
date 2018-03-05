@@ -1,9 +1,13 @@
 {
   "name": "express-sequelize-boilerplate",
   "version": "1.0.0",
-  "description": "Express API using Sequelize ORM",
-  "repository": "https://github.com/vmasto/express-babel",
-  "author": "Hoony <hoonch3@gmail.com>",
+  "description": "Express + Sequelize with Async/Await ",
+  "repository": "https://github.com/edkimco/express-sequelize-boilerplate",
+  "author": {
+    "name": "Hoony",
+    "email": "hoonch3@gmail.com",
+    "url": "https://medium.com/@the6thm0nth"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "lint-staged": {
@@ -18,11 +22,11 @@
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
-    "test": "jest --watch --coverage",
-    "lint": "esw -w src"
+    "test": "jest --watch --coverage"
   },
   "keywords": [
     "express",
+    "sequelize",
     "babel",
     "boilerplate",
     "scaffold",
@@ -31,7 +35,7 @@
     "es2016",
     "es2017",
     "jest",
-    "eslint"
+    "prettier"
   ],
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -48,18 +52,9 @@
     "crypto": "^1.0.1",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jest": "^21.5.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-watch": "^3.1.0",
     "express": "^4.15.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^4.0.0",
     "gulp-nodemon": "^2.2.1",
     "jest": "^21.2.1",
     "jsonwebtoken": "^7.4.2",
@@ -86,27 +81,6 @@
         }
       ]
     ]
-  },
-  "eslintConfig": {
-    "plugins": [
-      "import",
-      "jest"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2017,
-      "sourceType": "module"
-    },
-    "env": {
-      "node": true,
-      "jest": true
-    },
-    "extends": [
-      "eslint:recommended"
-    ],
-    "rules": {
-      "jest/no-focused-tests": 2,
-      "jest/no-identical-title": 2
-    }
   },
   "jest": {
     "verbose": true,
