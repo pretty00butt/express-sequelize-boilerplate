@@ -37,6 +37,13 @@ export const validateAdmin = (req, res, next) => {
   }
 }
 
+export const paginate = (req, res, next) => {
+  req.page = Number(req.query['x-page']) || config.pagination.defaultPage
+  req.pageSize =
+    Number(req.query['x-page-size']) || config.pagination.defaultPageSize
+  next()
+}
+
 export const asyncMiddleware = fn => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
