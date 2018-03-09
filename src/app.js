@@ -21,15 +21,21 @@ app.disable('x-powered-by')
 app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'pug')
 
-app.use(logger('dev', {
-  skip: () => app.get('env') === 'test'
-}))
+app.use(
+  logger('dev', {
+    skip: () => app.get('env') === 'test'
+  })
+)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, '../public')))
 
 app.use(flash())
-app.use(CORS())
+app.use(
+  CORS({
+    exposedHeaders: ['x-page', 'x-page-size', 'x-total-count']
+  })
+)
 
 // Routes
 app.use('/api', routes)
@@ -42,7 +48,8 @@ app.use((req, res, next) => {
 })
 
 // Error handler
-app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+app.use((err, req, res, next) => {
+  // eslint-disable-line no-unused-vars
   /**
    * if you use only for API Server
    */
@@ -59,9 +66,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     env: process.env.NODE_ENV
   }
 
-  res
-    .status(err.status || 500)
-    .json(error)
+  res.status(err.status || 500).json(error)
 
   /**
    * If you use view template engine such as Pug
