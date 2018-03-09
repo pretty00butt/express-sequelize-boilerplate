@@ -4,20 +4,19 @@ import { asyncMiddleware } from '../../../lib/middlewares'
 import config from '../../../../config'
 
 export const get = asyncMiddleware(async (req, res, next) => {
-  const query = req.query
-
-  const page = Number(query.page || config.pagination.defaultPage)
-  const pageSize = Number(query.pageSize || config.pagination.defaultPageSize)
+  const page = req.page
+  const pageSize = req.pageSize
 
   try {
-    const posts = await models.Post.findAll({
+    const result = await models.Post.findAndCountAll({
       offset: (page - 1) * pageSize,
       limit: pageSize
     })
 
     res.set('x-page', page)
     res.set('x-page-size', pageSize)
-    res.json(posts)
+    res.set('x-total-count', result.count)
+    res.json(result.rows)
   } catch (err) {
     next(err)
   }

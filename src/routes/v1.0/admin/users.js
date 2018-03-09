@@ -4,13 +4,11 @@ import { asyncMiddleware } from '../../../lib/middlewares'
 import config from '../../../../config'
 
 export const get = asyncMiddleware(async (req, res, next) => {
-  const query = req.query
-
-  const page = Number(query.page || config.pagination.defaultPage)
-  const pageSize = Number(query.pageSize || config.pagination.defaultPageSize)
+  const page = req.page
+  const pageSize = req.pageSize
 
   try {
-    const users = await models.User.findAll({
+    const result = await models.User.findAll({
       attributes: {
         exclude: ['password']
       },
@@ -20,7 +18,8 @@ export const get = asyncMiddleware(async (req, res, next) => {
 
     res.set('x-page', page)
     res.set('x-page-size', pageSize)
-    res.json(users)
+    res.set('x-total-count', result.count)
+    res.json(result.rows)
   } catch (err) {
     next(err)
   }
