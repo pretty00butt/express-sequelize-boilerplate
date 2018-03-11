@@ -12,6 +12,9 @@ module.exports = {
     forceSync: true,
     alter: false
   },
+  sentry: {
+    DSN: ''
+  },
   privateKey: 'express-sequelize-boilerplate',
   header: {
     token: 'x-access-token'

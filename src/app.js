@@ -4,6 +4,7 @@ import logger from 'morgan'
 import bodyParser from 'body-parser'
 import flash from 'connect-flash'
 import CORS from 'cors'
+import Raven from 'raven'
 
 import db from './db'
 import passport from './passport'
@@ -37,18 +38,25 @@ app.use(
   })
 )
 
+// Must configure Raven before doing anything else with it
+Raven.config(config.sentry.DSN).install()
+
+// The request handler must be the first middleware on the app
+app.use(Raven.requestHandler())
+
 // Routes
 app.use('/api', routes)
 
 // Catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found')
-  err.status = 404
-  next(err)
+app.use((req, res) => {
+  throw new Error('Not Found')
 })
 
+// The error handler must be before any other error middleware
+app.use(Raven.errorHandler())
+
 // Error handler
-app.use((err, req, res, next) => {
+app.use(function onError(err, req, res, next) {
   // eslint-disable-line no-unused-vars
   /**
    * if you use only for API Server
@@ -67,15 +75,6 @@ app.use((err, req, res, next) => {
   }
 
   res.status(err.status || 500).json(error)
-
-  /**
-   * If you use view template engine such as Pug
-   */
-  // res
-  //   .status(err.status || 500)
-  //   .render('error', {
-  //     message: err.message
-  //   })
 })
 
 export default app
