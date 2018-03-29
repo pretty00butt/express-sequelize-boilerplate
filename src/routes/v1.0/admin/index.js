@@ -3,7 +3,7 @@ import { Router } from 'express'
 import * as users from './users'
 import * as posts from './posts'
 
-import { paginate } from '../../../../config'
+import { paginate } from '../../../lib/middlewares'
 
 const router = Router()
 
