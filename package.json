@@ -21,7 +21,7 @@
     "start": "gulp",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
-    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
+    "build": "npm run clean && mkdir -p dist && babel src -D -d dist",
     "test": "jest --watch --coverage"
   },
   "keywords": [
