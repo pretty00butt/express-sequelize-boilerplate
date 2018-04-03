@@ -5,20 +5,35 @@
 Read this in other languages: [English](README.md), [한국어](README.ko.md)
 
 ```sh
-# Clone the project
+# 프로젝트 복제
 git clone https://github.com/edkimco/express-sequelize-boilerplate.git
 cd express-sequelize-boilerplate
 
-# Install dependencies
+# 의존성 설치
 npm install
 
-# or if you're using Yarn
+# Yarn을 쓰신다면
 yarn
 ```
 
+## 프로젝트 실행
+### 1. 로컬 실행
 ```sh
+# 로컬 서버 프로세스 실행 && js 파일 수정 후 저장하면 자동으로 재빌드됩니다.
 yarn start # npm run start
 ```
+### 2. PM2를 활용하여 서버 실행
+```sh
+# 의존성 설치
+yarn
+
+# dist 디렉터리에 배포용 코드가 생성됩니다.
+yarn build
+
+# pm2에 진입 소스 등록
+sudo pm2 start dist/entry.js --name="express-app"
+```
+- 원하는 port로 웹 서비스를 실행하려면 config.js의 port 값을 수정하세요.
 
 ## Basic APIs
 ### Normal
