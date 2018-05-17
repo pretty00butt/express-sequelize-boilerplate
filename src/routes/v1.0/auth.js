@@ -23,7 +23,7 @@ export const login = (req, res, next) => {
       if (ex) {
         next(ex)
       } else {
-        const token = createToken(user.get())
+        const token = createToken(user)
         user.token = token
         res.json(user)
       }

@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt-nodejs'
 import models from './models/index'
 import config from '../config'
 import { encrypt } from './lib/crypto'
@@ -34,19 +35,21 @@ const initialize = async function() {
   }
 }
 
+const hash = bcrypt.hashSync('1234')
+
 const modelsToInit = {
   users: [
     {
       id: 1,
       username: 'admin',
-      password: encrypt('1234'),
+      password: hash,
       nickname: '테스트 관리자',
       isAdmin: true
     },
     {
       id: 2,
       username: 'user',
-      password: encrypt('1234'),
+      password: hash,
       nickname: '테스트 사용자'
     }
   ],

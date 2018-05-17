@@ -13,7 +13,7 @@ export default () => {
         where: {
           username
         },
-        attributes: ['username', 'password']
+        attributes: ['username', 'password', 'nickname', 'isAdmin']
       })
         .then(user => {
           if (user) {
@@ -21,7 +21,12 @@ export default () => {
             if (!valid) {
               return done(null, false, { message: 'Incorrect password.' })
             }
-            return done(null, user)
+
+            const { username, nickname, isAdmin } = user
+
+            return done(null, {
+              username, nickname, isAdmin
+            })
           } else {
             return done(null, false, { message: 'Incorrect username.' })
           }
