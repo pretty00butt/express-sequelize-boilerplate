@@ -13,7 +13,7 @@ export default () => {
         where: {
           username
         },
-        attributes: ['username', 'password', 'nickname', 'isAdmin']
+        attributes: ['id', 'username', 'password', 'nickname', 'isAdmin']
       })
         .then(user => {
           if (user) {
