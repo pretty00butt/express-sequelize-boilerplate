@@ -22,10 +22,10 @@ export default () => {
               return done(null, false, { message: 'Incorrect password.' })
             }
 
-            const { username, nickname, isAdmin } = user
+            const { id, username, nickname, isAdmin } = user
 
             return done(null, {
-              username, nickname, isAdmin
+              id, username, nickname, isAdmin
             })
           } else {
             return done(null, false, { message: 'Incorrect username.' })
