@@ -39,4 +39,4 @@ db.Post.belongsTo(db.User)
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-module.exports = db
+export default db
