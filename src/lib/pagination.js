@@ -7,11 +7,14 @@ class pagination {
   /**
    * req.query를 받아서 페이지네이션 결과값으로 리턴해주는 함수
    *
+   * @param page Page
+   * @param rpp Rows Per Page
+   *
    * @memberof pagination
    */
-  static getPagination({ page = 1, pageSize = 10 }) {
-    const limit = Number(pageSize)
-    const offset = (Number(page) - 1) * Number(pageSize)
+  static getPagination({ page = 1, rpp = 10 }) {
+    const limit = Number(rpp)
+    const offset = (Number(page) - 1) * Number(rpp)
 
     return { limit, offset, pageSize: limit }
   }
