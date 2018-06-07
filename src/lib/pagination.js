@@ -16,7 +16,7 @@ class pagination {
     const limit = Number(rpp)
     const offset = (Number(page) - 1) * Number(rpp)
 
-    return { limit, offset, pageSize: limit }
+    return { limit, offset, rpp: limit }
   }
 
   /**
@@ -24,13 +24,13 @@ class pagination {
    *
    * @memberof pagination
    */
-  static convertFindAndCountAll(obj, pageSize, isRaw = false) {
+  static convertFindAndCountAll(obj, rpp, isRaw = false) {
     const pagingObject = {
       rows: obj.rows,
       pagination: {
         totalRecordCount: obj.count,
-        recordCountPerPage: pageSize,
-        totalPageCount: Math.floor((obj.count - 1) / pageSize) + 1
+        recordCountPerPage: rpp,
+        totalPageCount: Math.floor((obj.count - 1) / rpp) + 1
       }
     }
 
