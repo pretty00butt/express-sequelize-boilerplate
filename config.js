@@ -1,14 +1,24 @@
-const NODE_ENV = process.env.NODE_ENV || "develop"
+import dotenv from "dotenv"
+
+dotenv.config()
+
+const {
+  NODE_ENV = "develop",
+  DB_HOST,
+  DB_DATABASE,
+  DB_USERNAME,
+  DB_PASSWORD,
+} = process.env
 
 let config = {
   project: "express-sequelize-boilerplate",
   version: "0.1",
   port: 8080,
   db: {
-    host: "nbarocluster.cluster-ch6crw5rtc89.ap-northeast-2.rds.amazonaws.com",
-    database: "test",
-    username: "baroship-dev",
-    password: "talaria2018!!",
+    host: DB_HOST,
+    database: DB_DATABASE,
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
     dialect: "mysql",
     timezone: "+09:00",
     forceSync: false,
@@ -31,4 +41,4 @@ if (NODE_ENV == "production") {
   config.port = 8080
 }
 
-module.exports = config
+export default config

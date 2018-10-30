@@ -67,3 +67,4 @@ typings/
 .idea
 dist
 coverage
+.env
