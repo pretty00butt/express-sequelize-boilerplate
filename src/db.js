@@ -3,27 +3,24 @@ import models from './models/index'
 import config from '../config'
 import { encrypt } from './lib/crypto'
 
-export default () => {
-  models.sequelize
-    .sync({
+export default async () => {
+  try {
+    await models.sequelize.sync({
       force: config.db.forceSync,
       alter: config.db.alter
     })
-    .then(function initData() {
-      if (config.db.forceSync) return initialize()
-      else return true
-    })
-    .then(function doForceSync() {
-      console.log('db synced!')
-    })
-    .catch(err => {
-      console.error(err)
-    })
+
+    if (config.db.forceSync) await initialize()
+
+    console.log('db synced!')
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 const initialize = async function() {
   /**
-   * 사용자 생성
+   * Dummy 사용자 생성
    */
   try {
     // Users
@@ -35,22 +32,19 @@ const initialize = async function() {
   }
 }
 
+// Dummy 사용자 비밀번호: 1234
 const hash = bcrypt.hashSync('1234')
-
 const modelsToInit = {
   users: [
     {
       id: 1,
       username: 'admin',
-      password: hash,
-      nickname: '테스트 관리자',
-      isAdmin: true
+      password: hash
     },
     {
       id: 2,
       username: 'user',
-      password: hash,
-      nickname: '테스트 사용자'
+      password: hash
     }
   ],
 

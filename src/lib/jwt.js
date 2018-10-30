@@ -6,9 +6,7 @@ export const createToken = (payload = {}) => {
 }
 
 export const validateToken = (options = {}) => {
-  let {
-    token
-  } = options
+  let { token } = options
 
   return new Promise((resolve, reject) => {
     jwt.verify(token, config.privateKey, (err, payload) => {

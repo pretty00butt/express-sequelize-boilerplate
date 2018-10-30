@@ -1,4 +1,4 @@
-# Express ES6 Boilerplate
+# Express Sequelize Boilerplate
 
 ## Getting started
 
@@ -23,26 +23,26 @@ yarn start # npm run start
 ## Basic APIs
 ### Normal
 #### AUTH
-| METHOD | URI | Purpose |
-| ------ | --- | ------- |
-| `POST` | /api/{VERSION}/signup            | Signup                        |
-| `POST` | /api/auth/login                  | Login                         |
+| METHOD | URI                   | Purpose |
+| ------ | --------------------- | ------- |
+| `POST` | /api/{VERSION}/signup | Signup  |
+| `POST` | /api/auth/login       | Login   |
 
 #### POSTS
-| METHOD | URI | Purpose |
-| ------ | --- | ------- |
-| `GET` | /api/{VERSION}/posts                    | GET Posts with Pagination |
-| `POST` | /api/{VERSION}/posts                   | CREATE a new post |
-| `PUT` | /api/{VERSION}/posts/{POST_ID}          | UPDATE a post |
-| `DELETE` | /api/{VERSION}/posts/{POST_ID}       | DELETE a post |
+| METHOD   | URI                            | Purpose                   |
+| -------- | ------------------------------ | ------------------------- |
+| `GET`    | /api/{VERSION}/posts           | GET Posts with Pagination |
+| `POST`   | /api/{VERSION}/posts           | CREATE a new post         |
+| `PUT`    | /api/{VERSION}/posts/{POST_ID} | UPDATE a post             |
+| `DELETE` | /api/{VERSION}/posts/{POST_ID} | DELETE a post             |
 
 ### Admin
 #### Users
 #### Posts
-| METHOD | URI | Purpose |
-| ------ | --- | ------- |
-| `GET` | /api/{VERSION}/admin/posts                    | GET Posts with Pagination |
-| `DELETE` | /api/{VERSION}/admin/posts/{POST_ID}       | DELETE a post |
+| METHOD   | URI                                  | Purpose                   |
+| -------- | ------------------------------------ | ------------------------- |
+| `GET`    | /api/{VERSION}/admin/posts           | GET Posts with Pagination |
+| `DELETE` | /api/{VERSION}/admin/posts/{POST_ID} | DELETE a post             |
 
 ## Features
 

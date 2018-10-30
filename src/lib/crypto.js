@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+import bcrypt from 'bcrypt-nodejs'
 import config from '../../config'
 
 // 1-1. 양방향 암호화 - 암호화
@@ -19,4 +20,22 @@ export const decrypt = value => {
   } else {
     return value
   }
+}
+
+export const encryptHash = value => {
+  return new Promise((resolve, reject) => {
+    bcrypt.hash(value, null, null, (err, result) => {
+      if (err) reject(err)
+      else resolve(result)
+    })
+  })
+}
+
+export const compareHash = (value, hash) => {
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(value, hash, (err, result) => {
+      if (err) reject(err)
+      else resolve(result)
+    })
+  })
 }

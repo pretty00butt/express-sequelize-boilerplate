@@ -1,6 +1,5 @@
 import { Router } from 'express'
 
-import adminRouter from './admin'
 import * as auth from './auth'
 import * as posts from './posts'
 
@@ -17,11 +16,6 @@ router.get('/', (req, res) => {
     version: 'v1.0'
   })
 })
-
-/**
- * Admin
- */
-router.use('/admin', validateAdmin, adminRouter)
 
 /**
  * Authentication

@@ -18,8 +18,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "gulp",
-    "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
+    "dev": "nodemon index.js",
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -D -d dist",
     "test": "jest --watch --coverage"
@@ -66,7 +65,6 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-beta11",
-    "raven": "^2.4.2",
     "rimraf": "^2.6.1",
     "sequelize": "^4.4.2",
     "supertest": "^3.0.0"
@@ -86,9 +84,7 @@
   "jest": {
     "verbose": true,
     "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/routes/**/*.js"
-    ]
+    "collectCoverageFrom": ["src/routes/**/*.js"]
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
