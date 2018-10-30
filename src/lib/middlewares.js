@@ -35,10 +35,8 @@ export const validateAdmin = async (req, res, next) => {
 }
 
 export const paginate = (req, res, next) => {
-  req.limit =
-    Number(req.get('x-page-size')) || config.pagination.defaultPageSize
+  req.limit = +req.get('x-page-size') || config.pagination.defaultPageSize
   req.offset =
-    ((Number(req.get('x-page')) || config.pagination.defaultPage) - 1) *
-    req.limit
+    ((+req.get('x-page') || config.pagination.defaultPage) - 1) * req.limit
   next()
 }
