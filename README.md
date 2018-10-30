@@ -14,7 +14,9 @@ yarn
 ```
 
 ```sh
-yarn dev # npm run start
+cp .env.example .env
+vim .env # set environment variables such as database config
+yarn start # npm run start
 ```
 
 ## Basic APIs
